@@ -1,0 +1,32 @@
+.general {
+  .general__element {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+
+  .icon-refresh {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .date-picker {
+    margin: 10px;
+    height: 36px;
+    cursor: pointer;
+  }
+
+  .chart {
+    width: 500px;
+
+    .chart--image {
+      width: 100%;
+    }
+  }
+
+}

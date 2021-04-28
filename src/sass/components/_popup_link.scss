@@ -1,0 +1,29 @@
+.popup-link {
+  display: none;
+
+  .element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .popup--link-table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  p {
+    margin: 15px;
+  }
+
+  .company {
+    input {
+      margin: 15px;
+
+      &:last-of-type {
+        width: 50px;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.personaldata {
+  .element {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .form--contact, .form--personal, .form--password, .form--wallet {
+    display: flex;
+    justify-content: center;
+  }
+
+  .form--submit {
+    display: flex;
+    justify-content: center;
+  }
+
+  form {
+    width: 50%;
+
+    .form--data {
+        margin: 20px 0;
+    }
+  }
+
+  .form--data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  label {
+    padding: 10px;
+  }
+
+  input {
+    padding: 10px;
+  }
+}

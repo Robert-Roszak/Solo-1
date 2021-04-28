@@ -1,0 +1,116 @@
+.link {
+  color: $text-main-color;
+  padding: 15px;
+}
+
+.link--no_decoration {
+  text-decoration: none;
+}
+
+.list--no-decoration {
+  list-style-type: none;
+}
+
+.section--title {
+  text-transform: uppercase;
+  padding: 20px;
+  margin: 0;
+}
+
+.section--sub-title {
+  padding-top: 20px;
+}
+
+
+.button {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: 5%;
+  color: $button-color-two;
+  border: 0;
+  cursor: pointer;
+  margin: 10px;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.btn-orange {
+  background-color: $button-color-one;
+}
+
+.btn-text {
+  width: auto;
+}
+
+[class*='icon-'] {
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+table {
+  padding: 10px;
+  border-collapse: collapse;
+
+  &:not(:last-of-type) {
+    margin-right: 50px;
+  }
+
+  .table--hover:hover {
+    background-color: $background-color-one;
+  }
+
+  .table--hover:hover .table--icons {
+    opacity: 1;
+  }
+
+  .table--bottom-border {
+    border-bottom: 1px solid $text-main-color;
+  }
+
+  td {
+    padding: 10px;
+  }
+  
+  td:not(:last-of-type) {
+    padding-right: 70px;
+  }
+
+  .table--icons {
+    opacity: 0;
+
+    [class*='icon-'] {
+      margin: 10px;
+      cursor: pointer;
+      background: 0;
+      border: none;
+    }
+  }
+  .table--top-bottom-border {
+    border-top: 1px solid $text-main-color;
+    border-bottom: 1px solid $text-main-color;
+  }
+
+}
+
+.text--bold {
+  font-weight: bold;
+}
+
+.text--uppercase {
+  text-transform: uppercase;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $text-main-color;
+}
+
+.border-top {
+  border-top: 1px solid $text-main-color;
+}

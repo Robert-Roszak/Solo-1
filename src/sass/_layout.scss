@@ -1,0 +1,95 @@
+body {
+  color: $text-main-color;
+  font-size: $text-font-size;
+  font-family: $text-font;
+  background-color: $background-color-one;
+  position: relative;
+}
+
+.side-menu {
+  background-color: $brand-main-color;
+  height: 100vh;
+  min-width: 200px;
+  max-width: 200px;
+  position: fixed !important;
+  left: 0;
+  overflow-x: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+
+}
+
+.side-menu__subpages, .side-menu__manager {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: $background-color-two;
+    height: 60px;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    position: fixed;
+    box-shadow: 5px 5px 20px 0px #000000;
+  }
+}
+
+.general, .links, .banners, .personaldata {
+  background-color: $background-color-two;
+  position: relative;
+  left: 215px;
+  width: calc(100vw - 250px);
+  box-shadow: 5px 5px 20px 0px #000000;
+  top: 80px;
+  z-index: 0;
+  display: none;
+}
+
+.popup-banner, .popup-link {
+  z-index: 10;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  //transform: translate(50%, 50%);
+  background-color: $background-color-two;
+  box-shadow: 5px 5px 20px 0px #000000;
+}
+
+.links .links__element:last-of-type, .banners .banners__element:last-of-type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active {
+  display: block;
+}
+
+.highlight {
+  background-color: $hover-color;
+  border-left: 7px $button-color-one solid;
+  color: $background-color-two;
+
+  .side-menu [class*="icon"]{
+    color: $background-color-two;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .side-menu, nav .nav-container {
+    display: none;
+  }
+
+  .general, .links, .banners, .personaldata {
+    width: calc(100vw - 40px);
+    left: 20px;
+    top: 20px;
+  }
+}

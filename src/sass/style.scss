@@ -1,4 +1,14 @@
+@import 'Glyphter';
 @import 'variables';
+
 @import 'mixins';
 @import 'normalize';
 @import 'layout';
+
+@import 'sections/_side_menu';
+@import 'sections/_navbar';
+@import 'sections/_statistics';
+@import 'sections/_links';
+@import 'sections/_personaldata';
+
+@import 'components/_popup_link';
