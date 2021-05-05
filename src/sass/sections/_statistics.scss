@@ -1,26 +1,4 @@
 .general {
-  .general__element {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 15px;
-  }
-
-  .icon-refresh {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-  }
-
-  .date-picker {
-    margin: 10px;
-    height: 36px;
-    cursor: pointer;
-  }
-
   .chart {
     width: 500px;
 
@@ -29,4 +7,27 @@
     }
   }
 
+  .statistics {
+    display: flex;
+    
+    .stats__element {
+      display: flex;
+      flex-direction: column;
+      margin-right: 50px;
+      align-items: stretch;
+    }
+
+    .visits, .FTD, .net, .turnover {
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        margin: 10px;
+      }
+
+      span:not(:last-of-type) {
+        margin-right: 100px;
+      }
+    }
+  }
 }

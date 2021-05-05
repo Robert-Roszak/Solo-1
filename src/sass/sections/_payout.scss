@@ -1,0 +1,15 @@
+.payout {
+  table {
+    .table--hover {
+      cursor: pointer;
+
+      &:hover .icon-arrow-up {
+        opacity: 1;
+      }
+    }
+
+    .icon-arrow-up {
+        opacity: 0;
+    }
+  }
+}

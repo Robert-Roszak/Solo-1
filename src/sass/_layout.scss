@@ -3,7 +3,6 @@ body {
   font-size: $text-font-size;
   font-family: $text-font;
   background-color: $background-color-one;
-  position: relative;
 }
 
 .side-menu {
@@ -28,7 +27,6 @@ body {
 nav {
   .nav-container {
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     background-color: $background-color-two;
@@ -41,25 +39,76 @@ nav {
   }
 }
 
-.general, .links, .banners, .personaldata {
+.general, .details, .links, .banners, .personaldata, .payout {
   background-color: $background-color-two;
-  position: relative;
-  left: 215px;
+  margin-left: 215px;
   width: calc(100vw - 250px);
   box-shadow: 5px 5px 20px 0px #000000;
-  top: 80px;
+  margin-top: 80px;
   z-index: 0;
   display: none;
+  overflow: hidden;
+
+  .general__element, .details__element, .payout__element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+  }
 }
 
-.popup-banner, .popup-link {
-  z-index: 10;
+.popup-link, .popup-banner {
+  display: none;
   position: absolute;
-  top: 15%;
-  left: 15%;
-  //transform: translate(50%, 50%);
-  background-color: $background-color-two;
-  box-shadow: 5px 5px 20px 0px #000000;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(117, 124, 131, 0.2);
+
+  .popup-banner__title, .popup-link__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .icon-close {
+      margin-right: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .popup-banner__wrapper, .popup-link__wrapper {
+    margin-top: 13%;
+    margin-left: 20%;
+    margin-right: 20%;
+    background: $background-color-two;
+    box-shadow: 5px 5px 20px 0px #000000;
+    opacity: 1;
+  }
+
+  .popup-banner__generate, .popup-link__generate {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+
+    input {
+      width: 100%;
+    }
+
+    .btn-long {
+      color: $button-color-one;
+    }
+
+    .button {
+      margin: 0 15px;
+    }
+
+    .icon-links {
+      margin-right: 15px;
+    }
+  }
+
 }
 
 .links .links__element:last-of-type, .banners .banners__element:last-of-type {
@@ -69,7 +118,7 @@ nav {
 }
 
 .active {
-  display: block;
+  display: block !important;
 }
 
 .highlight {
@@ -82,14 +131,265 @@ nav {
   }
 }
 
+.link {
+  color: $text-main-color;
+  padding: 15px;
+}
+
+.link--no_decoration {
+  text-decoration: none;
+}
+
+.list--no-decoration {
+  list-style-type: none;
+}
+
+.section--title {
+  text-transform: uppercase;
+  padding: 20px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.section--sub-title {
+  padding-top: 20px;
+}
+
+
+.button {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: 5%;
+  color: $button-color-two;
+  border: 0;
+  cursor: pointer;
+  margin: 10px;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.btn-orange {
+  background-color: $button-color-one;
+}
+
+.btn-text {
+  width: auto;
+}
+
+.btn-long {
+  width: 125px;
+}
+
+[class*='icon-'] {
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+table {
+  padding: 10px;
+  border-collapse: collapse;
+
+  &:not(:last-of-type) {
+    margin-right: 50px;
+  }
+
+  .table--hover:hover {
+    background-color: $background-color-one;
+  }
+
+  .table--hover:hover .table--icons {
+    opacity: 1;
+  }
+
+  .table--bottom-border {
+    border-bottom: 1px solid $text-main-color;
+  }
+
+  td {
+    padding: 10px 10px 10px 0;
+  }
+  
+  td:not(:last-of-type) {
+    padding-right: 70px;
+  }
+
+  .table--icons {
+    opacity: 0;
+
+    [class*='icon-'] {
+      margin: 10px;
+      cursor: pointer;
+      background: 0;
+      border: none;
+    }
+  }
+
+  .table--top-bottom-border {
+    border-top: 1px solid $text-main-color;
+    border-bottom: 1px solid $text-main-color;
+  }
+
+}
+
+.text--bold {
+  font-weight: bold;
+}
+
+.text--uppercase {
+  text-transform: uppercase;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $text-main-color;
+}
+
+.border-top {
+  border-top: 1px solid $text-main-color;
+}
+
+.border-right {
+  border-right: 1px solid $text-main-color;
+}
+
+.text-invis {
+  visibility: hidden;
+}
+
+.date-picker {
+  margin: 10px;
+  height: 36px;
+  cursor: pointer;
+}
+
+// Media 
+
 @media screen and (max-width: 767px) {
-  .side-menu, nav .nav-container {
+  nav .nav-container {
     display: none;
   }
 
-  .general, .links, .banners, .personaldata {
+  .side-menu {
+    height: 60px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    transition: 0.5s ease;
+
+    .side-menu__manager {
+      align-items: center;
+      
+      .manager--name {
+        padding-left: 10px;
+      }
+    }
+
+    .from-navbar {
+      display: block !important;
+
+      .link {
+        width: 100%;
+      }
+    }
+  }
+
+  .general, .details, .links, .banners, .personaldata, .payout {
+    width: 100%;
+    margin: 60px auto 0;
+  }
+
+  .show {
+    height: 100%;
+    transition: 0.5s ease;
+  }
+
+  .general {
+    .general__element {
+      flex-direction: column;
+    }
+
+    .statistics {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  }
+
+  table {
+    td {
+      padding: 0;
+    }
+
+    td:not(:last-of-type) {
+      padding: 5px;
+    }
+  }
+
+  .popup-banner__generate > * , .popup-link__generate > * {
+    display: flex;
+    justify-content: center;
+
+    .button {
+      margin: 10px !important;
+    }
+  }
+
+  .personaldata {
+    form > * {
+      width: 100% !important;
+    }
+
+    .button {
+      width: 75% !important;
+    }
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  nav .nav-container {
+    justify-content: space-around;
+  }
+
+  .side-menu {
+    height: 60px;
+    left: -125px;
+    overflow: hidden;
+    background-color: transparent;
+    transition: 0.5s ease;
+  }
+
+  .general, .details, .links, .banners, .personaldata, .payout {
     width: calc(100vw - 40px);
-    left: 20px;
-    top: 20px;
+    margin-left: 20px;
+    margin-top: 80px;
+  }
+
+  .show {
+    height: 100%;
+    left: 0;
+    overflow-y: auto;
+    background-color: $brand-main-color;
+    transition: 0.5s ease;
+  }
+
+  .popup-banner__wrapper, .popup-link__wrapper {
+    margin-left: 15% !important;
+    margin-right: 15% !important;
+  }
+
+  .personaldata {
+    form > * {
+      width: 50% !important;
+    }
+
+    .button {
+      width: 25% !important;
+    }
   }
 }

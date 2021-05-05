@@ -8,6 +8,7 @@
     .logo {
       padding: 15px;
       margin: 0;
+      font-size: 20px;
     }
   }
 
@@ -19,12 +20,14 @@
 
   .hover:hover [class*="icon"] {
     color: $background-color-two;
+    opacity: 1;
   }
 
   .side-menu__manager {
     .text {
       padding-left: 15px;
       margin-bottom: 0;
+      font-size: 20px;
     }
 
     .manager--container {
@@ -39,11 +42,16 @@
         border-radius: 50%;
         object-fit: cover;
       }
+
+      .manager--name {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 
   .from-navbar {
-    transform: translateY(100%);
+    //transform: translateY(100%);
     display: none;
     
     .nav-container {
@@ -51,6 +59,7 @@
       flex-direction: column;
       align-items: center;
     }
+
     .nav__element {
       display: flex;
       justify-content: center;

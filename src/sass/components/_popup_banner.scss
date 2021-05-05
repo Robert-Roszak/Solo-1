@@ -1,8 +1,8 @@
-.popup-link {
-  .popup-link__scheme {
-    /*display: flex;
-      flex-direction: column;
-      align-items: stretch;*/
+.popup-banner {
+  .popup-banner__element {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 
     .element {
       display: flex;
@@ -17,16 +17,21 @@
       }
     }
   }
-
+  
   .table_wrapper {
+    margin: 0;
+      
+    .inner {
+      padding: 0;
+    }
+      
     .wrapper-text {
       margin: 5px 20px;
     }
 
-    .popup-link__table {
+    .popup-banner__table {
       padding: 20px 0 20px 20px;
       display: block;
-      width: 100%;
       overflow-x: auto;
       height: 300px;
 
@@ -53,7 +58,7 @@
       }
 
       [class*="icon"] {
-        margin-left: 50px;
+        margin-left: 120px;
         opacity: 0;
       }
         
