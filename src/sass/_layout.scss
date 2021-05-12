@@ -39,7 +39,7 @@ nav {
     top: 0;
     z-index: 2;
     position: fixed;
-    box-shadow: 5px 5px 20px 0px #000000;
+    box-shadow: $box-shadow;
   }
 }
 
@@ -51,7 +51,7 @@ nav {
   background-color: $background-color-two;
   margin-left: 215px;
   width: calc(100vw - 250px);
-  box-shadow: 5px 5px 20px 0px #000000;
+  box-shadow: $box-shadow;
   margin-top: 80px;
   z-index: 0;
   display: none;
@@ -80,6 +80,7 @@ nav {
   justify-content: center;
   align-items: center;
   background-color: rgba(117, 124, 131, 0.2);
+  overflow: auto;
 
   .popup-banner__title,
   .popup-link__title {
@@ -96,9 +97,10 @@ nav {
   .popup-banner__wrapper,
   .popup-link__wrapper {
     background: $background-color-two;
-    box-shadow: 5px 5px 20px 0px #000000;
+    box-shadow: $box-shadow;
     opacity: 1;
     margin: auto;
+    overflow: hidden;
   }
 
   .popup-banner__generate,
@@ -166,7 +168,7 @@ nav {
 
 .section--title {
   text-transform: uppercase;
-  padding: 20px;
+  padding: 20px 35px;
   margin: 0;
   font-size: 20px;
 }
@@ -226,7 +228,7 @@ table {
   }
 
   td {
-    padding: 10px 10px 10px 0;
+    padding: 10px;
   }
   
   td:not(:last-of-type) {
@@ -280,7 +282,6 @@ table {
 
 .date-picker {
   margin: 10px;
-  height: 36px;
   cursor: pointer;
 }
 
@@ -307,6 +308,10 @@ table {
     background-color: $background-color-one;
     border-radius: 5%;
   }
+}
+
+input:not(input[type=checkbox]) {
+  height: 36px;
 }
 
 // Media 
@@ -382,12 +387,21 @@ table {
 
   .personaldata {
     form > * {
-      width: 100% !important;
+      width: 80% !important;
     }
 
     .button {
-      width: 75% !important;
+      width: 80% !important;
+      border-radius: 0;
     }
+  }
+
+  .popup-link .table_wrapper .popup-link__table [class*="icon"] {
+    margin-left: 15% !important;
+  }
+
+  .popup-banner .table_wrapper .popup-banner__table [class*="icon"] {
+    margin-left: 65% !important;
   }
 
 }
@@ -395,6 +409,10 @@ table {
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   nav .nav-container {
     justify-content: space-around;
+
+    .border-left {
+      border-right: 1px solid $text-main-color;
+    }
   }
 
   .side-menu {
@@ -433,4 +451,13 @@ table {
       width: 25% !important;
     }
   }
+
+  .popup-link .table_wrapper .popup-link__table [class*="icon"] {
+    margin-left: 35% !important;
+  }
+
+  .popup-banner .table_wrapper .popup-banner__table [class*="icon"] {
+    margin-left: 45% !important;
+  }
+
 }

@@ -95,7 +95,7 @@ function appInit() {
   tableExtention(linksTable, tableData.linksRows, tableData.linksCols, tableData.linksBannersInnerHTML);
 
   // extend popup-baners table
-  for (let bannerTable of bannersTables) {
+  for (const bannerTable of bannersTables) {
     tableExtention(bannerTable, tableData.bannersRows, tableData.bannersCols, tableData.linksBannersInnerHTML);
   }
 
@@ -116,21 +116,18 @@ function appInit() {
 }
 
 function myChart() {
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var chart = new Chart(ctx, { // eslint-disable-line no-unused-vars, no-undef
-    // 1
+  let ctx = document.getElementById('myChart').getContext('2d');
+  let chart = new Chart(ctx, { // eslint-disable-line no-unused-vars, no-undef
+    options: {
+      responsive: true,
+    },
     type: 'bar',
     data: {
-      // 2
       labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'],
-      // 3
       datasets: [{
-        // 4
         label: 'Signups',
-        // 5
         backgroundColor: '#8DBEC8',
         borderColor: '#8DBEC8',
-        // 6
         data: [ 52, 51, 41, 94, 26, 6, 72, 9, 21, 88 ],
       },
       {
@@ -144,7 +141,6 @@ function myChart() {
         backgroundColor: '#71B374',
         borderColor: '#71B374',
         data: [ 59, 49, 68, 90, 67, 41, 13, 38, 48, 48 ],
-        // 7
         hidden: true,
       }]
     },
@@ -152,7 +148,7 @@ function myChart() {
 }
 
 function closeModal() {
-  for (let closePopup of closePopups) {
+  for (const closePopup of closePopups) {
     closePopup.addEventListener('click', function(event){
       const idToHide = event.target.getAttribute('data-id');
       console.log(idToHide);
@@ -168,7 +164,7 @@ function closeModal() {
     }
   });
 
-  for (let popup of allPopups) {
+  for (const popup of allPopups) {
     popup.addEventListener('click', function(e){
       if (e.target === this) {
         popup.classList.remove(classList.showPopup);
@@ -211,7 +207,7 @@ function tableExtention(table, rows, cols, extention) {
 /* 
 function copyTable(table, rows, extention){
 
-  for (let i = 0; i < rows; i++) {
+  for (const i = 0; i < rows; i++) {
     let row = document.createElement('tr');
     row.classList.add('border-bottom');
     row.classList.add('table--hover');
@@ -231,21 +227,21 @@ function prepareTableArray(data, num, location) {
 function createTableHTML(data, index, isHidden = true) {
   const params = Object.keys(data[0]);
   let theadContent = '';
-  for(const param of params) {
+  for(let param of params) {
     theadContent += '<th>' + param + '</th>';
   }
   
   let tbodyContent = '';
   for(let item of data) {
     tbodyContent += '<tr class="table--hover">';
-    for(let value of Object.values(item)) {
+    for(const value of Object.values(item)) {
       tbodyContent += `<td>${value}</td>`;
     }
     tbodyContent += '</tr>';
   }
 
   const tableHTML = `
-      <table id="table-${index}" class="${(isHidden) ? '' : ' activate-table'}">
+      <table id="table-${index}" class="${(isHidden) ? '' : 'activate-table'}">
         <thead>
           <tr>
             ${theadContent}
@@ -277,12 +273,12 @@ function tablePagination(data, location) {
   document.querySelector(location + ' ' + select.pagination).addEventListener('click', function(event) {
     if(event.target.tagName === 'LI') {
       const activeTable = document.querySelector(location + ' .activate-table');
-      const activeLink = document.querySelector(select.pag_highlight);
+      const activeLink = document.querySelector(location + ' ' + select.pag_highlight);
       activeTable.classList.remove('activate-table');
       activeLink.classList.remove(classList.pag_highlight);
       
       const targetTableId = event.target.getAttribute('data-target');
-      const targetTable = document.querySelector(targetTableId);
+      const targetTable = document.querySelector(location + ' ' + targetTableId);
       event.target.classList.add(classList.pag_highlight);
       targetTable.classList.add('activate-table');
     }

@@ -2,8 +2,10 @@
   .chart {
     width: 500px;
 
-    .chart--image {
-      width: 100%;
+    .chart-js {
+      position: relative;
+      max-width: 100%;
+      overflow: auto;
     }
   }
 

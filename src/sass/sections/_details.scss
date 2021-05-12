@@ -1,6 +1,8 @@
 .details {
   table {
     display: none;
+    overflow: auto;
+    transition: all 0.5s 0s ease-in-out;
 
     .table--hover {
       cursor: pointer;
