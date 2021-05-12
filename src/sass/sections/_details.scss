@@ -1,7 +1,14 @@
 .details {
   table {
+    display: none;
+
     .table--hover {
       cursor: pointer;
     }
+  }
+
+  .activate-table {
+    display: block !important;
+    transition: all 0.5s 0s ease-in-out;
   }
 }

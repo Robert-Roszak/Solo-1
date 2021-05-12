@@ -45,6 +45,7 @@
         "stylelint-scss": "^3.5.4"
     },
     "dependencies": {
+        "chart.js": "^3.2.1",
         "extend": "^3.0.2",
         "flatpickr": "^4.6.9",
         "json-server": "^0.16.3",

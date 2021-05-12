@@ -1,15 +1,16 @@
 .payout {
+  .table {
+    display: flex;
+    flex-direction: column;
+  }
+
   table {
-    .table--hover {
-      cursor: pointer;
+    display: none;
+    transition: all 0.5s 0s ease-in-out;
+  }
 
-      &:hover .icon-arrow-up {
-        opacity: 1;
-      }
-    }
-
-    .icon-arrow-up {
-        opacity: 0;
-    }
+  .activate-table {
+    display: block !important;
+    transition: all 0.5s 0s ease-in-out;
   }
 }

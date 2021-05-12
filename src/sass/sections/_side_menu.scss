@@ -9,6 +9,7 @@
       padding: 15px;
       margin: 0;
       font-size: 20px;
+      font-family: $brand-font;
     }
   }
 
@@ -51,7 +52,6 @@
   }
 
   .from-navbar {
-    //transform: translateY(100%);
     display: none;
     
     .nav-container {
@@ -65,5 +65,9 @@
       justify-content: center;
       width: 100%;
     }
+  }
+
+  .hamburger-icon {
+    fill: $background-color-two;
   }
 }

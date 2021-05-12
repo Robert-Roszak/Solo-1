@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Noticia+Text&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -17,7 +16,11 @@
       <div class="side-menu__logo">
         <h1 class="logo">Just do it</h1>
         <button type="button" id="sidebar-show" class="button btn-orange">
-          <span class="fas fa-bars"></span>
+          <svg class="hamburger-icon" viewBox="0 0 100 80">
+            <rect width="100" height="15"></rect>
+            <rect y="30" width="100" height="15"></rect>
+            <rect y="60" width="100" height="15"></rect>
+          </svg>
         </button>
       </div>
       <nav class="side-menu__subpages border-bottom">
@@ -50,11 +53,11 @@
           <span class="icon-payout"></span>
           Payout
         </a>
-
+<!-- 
         <a href="#postback" class="link link--no_decoration hover">
           <span class="icon-postback"></span>
           Postback
-        </a>
+        </a> -->
       </nav>
 
       <section class="side-menu__manager">
@@ -101,29 +104,25 @@
   
   <nav>
     <div class="nav-container">
-      <hr>
-      <div class="nav__element">
+      <div class="nav__element border-left">
         <a href="#" class="link link--no_decoration">
           <span class="icon-wallet"></span>
           <span class="link--text">$1,500.00</span>
           <span class="icon-arrow-down"></span>
         </a>
       </div>
-      <hr>
-      <div class="nav__element">
+      <div class="nav__element border-left">
         <a href="#" class="link link--no_decoration">
           <span class="icon-notification"></span>
         </a>
       </div>
-      <hr>
-      <div class="nav__element">
+      <div class="nav__element border-left">
         <a href="#" class="link link--no_decoration">
           <span class="icon-profile"></span>
           <span class="link--text">Jordan Belfort</span>
         </a>
       </div>
-      <hr>
-      <div class="nav__element">
+      <div class="nav__element border-left">
         <a href="#" class="link link--no_decoration">
           <span class="icon-quit"></span>
         </a>
@@ -132,15 +131,17 @@
   </nav>
 
 <main class="pages-wrapper">
-  <section class="general" id="general">
+  <section class="general active" id="general">
     <header class="general__title border-bottom">
       <h1 class="section--title">General Statistics</h1>
     </header>
 
     <div class="general__element border-bottom">
-      <input class="date-picker" type="date" id="start" name="stats-start">
-      <input class="date-picker" type="date" id="end" name="stats-end">
-      <button type="button" class="button btn-orange"><span class="icon-refresh"></span></button>
+      <form>
+        <input class="date-picker" type="date" id="start" name="stats-start">
+        <input class="date-picker" type="date" id="end" name="stats-end">
+        <button type="button" class="button btn-orange"><span class="icon-refresh"></span></button>
+      </form>
     </div>
 
     <div class="general__element">
@@ -170,8 +171,11 @@
 
     <div class="general__element">
       <div class="chart">
-        <h4 class="section--sub-title">Earnings chart</h4>
-        <img src="https://images.pexels.com/photos/6289026/pexels-photo-6289026.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="graph" class="chart--image">
+        <h1 class="section--sub-title">Earnings chart</h1>
+        <div class="chart-js">
+          <canvas id="myChart">
+          </canvas>
+        </div>
       </div>
     </div>
   </section>
@@ -182,40 +186,15 @@
     </header>
     
     <div class="details__element border-bottom">
-      <input class="date-picker" type="date" id="details-start" name="stats-start">
-      <input class="date-picker" type="date" id="details-end" name="stats-end">
-      <button type="button" class="button btn-orange"><span class="icon-refresh"></span></button>
+      <form>
+        <input class="date-picker" type="date" id="details-start" name="stats-start">
+        <input class="date-picker" type="date" id="details-end" name="stats-end">
+        <button type="button" class="button btn-orange"><span class="icon-refresh"></span></button>
+      </form>
     </div>
 
-    <div class="details__element border-bottom">
-      <table>
-        <tr class="border-bottom">
-          <th class="table--hover">Tracker name<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Initiated date<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Visits<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Unique<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Signups<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">FTD<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Depositors<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Deposits ($)<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Payout ($)<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Turnover<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Deal<span class="icon-arrow-up"></span></th>
-        </tr>
-        <tr class="border-bottom table--hover">
-          <td>aff/sam_test</td>
-          <td>17/08/02 (12:04)</td>
-          <td>232</td>
-          <td>114</td>
-          <td>12</td>
-          <td>6</td>
-          <td>3</td>
-          <td>34,425.00</td>
-          <td>232</td>
-          <td>421,324.00</td>
-          <td>cpl (200)</td>
-        </tr>
-      </table>
+    <div class="details__element table border-bottom">
+      <!-- JS inserts table here -->
     </div>
   </section>
 
@@ -225,7 +204,7 @@
     </header>
 
     <div class="links__element">
-      <button type="button" class="button btn-orange btn-text popup" id="popup-link">+ add new</button>
+      <button type="button" class="button btn-orange btn-text popup" data-id="popup-link">+ add new</button>
       <table>
         <tr class="table--hover table--hover-icons table--top-bottom-border">
           <td class="text--bold">Kodilla.com</td>
@@ -276,187 +255,62 @@
           </td>
         </tr>
       </table>
-      <button type="button" class="button btn-orange btn-text popup" id="popup-link">+ add new</button>
+      <button type="button" class="button btn-orange btn-text popup" data-id="popup-link">+ add new</button>
     </div>
   </section>
 
-  <section class="popup-link">
+  <section class="popup-link overlay">
     <div class="popup-link__wrapper">
       <header class="popup-link__title border-bottom">
         <h1 class="section--title">Add URL</h1>
-        <span class="icon-close close-popup" id="popup-link"></span>
+        <span class="icon-close close-popup" data-id="popup-link"></span>
       </header>
-
-      <div class="popup-link__scheme border-bottom">
-        <div class="element company row">
-          <div class="col-12 col-md-5">
-            <label for="schem-name--link">Scheme name</label>
-            <input type="text" placeholder="Name" id="schem-name--link">
+      <form>
+        <div class="popup-link__scheme border-bottom">
+          <div class="element company row">
+            <div class="col-12 col-md-5">
+              <label for="schem-name--link">Scheme name</label>
+              <input type="text" placeholder="Name" id="schem-name--link">
+            </div>
+            <div class="col-12 col-md-5">
+              <label for="company--link" class="text-invis">Company</label>
+              <input list="company" name="company" placeholder="Select company" id="company--link">
+                <datalist id="company">
+                <option value="kodilla"></option>
+                <option value="epam"></option>
+                <option value="luxoft"></option>
+              </datalist>
+            </div>
+            <div class="col-12 col-md-2">
+              <label for="lang--link">Language</label>
+              <input list="language" name="language" id="lang--link">
+                <datalist id="language">
+                <option value="EN" selected></option>
+                <option value="PL"></option>
+                <option value="DE"></option>
+              </datalist>
+            </div>
           </div>
-          <div class="col-12 col-md-5">
-            <label for="company--link" class="text-invis">Company</label>
-            <input list="company" name="company" placeholder="Select company" id="company--link">
-              <datalist id="company">
-              <option value="kodilla"></option>
-              <option value="epam"></option>
-              <option value="luxoft"></option>
-            </datalist>
+        </div>
+        <div class="table_wrapper border-bottom">
+          <span class="wrapper-text">Select websites</span>
+          <div class="popup-link__table">
+            <table>
+            </table>
+          </div>
+        </div>
+        <div class="popup-link__generate row">
+          <div class="col-12 col-md-7">
+            <input type="text" placeholder="Generated link" class="generated-link">
+          </div>
+          <div class="col-12 col-md-3">
+            <button type="button" class="button btn-grey btn-text btn-long"><span class="icon-links"></span>Copy link</button>
           </div>
           <div class="col-12 col-md-2">
-            <label for="lang--link">Language</label>
-            <input list="language" name="language" id="lang--link">
-              <datalist id="language">
-              <option value="EN" selected></option>
-              <option value="PL"></option>
-              <option value="DE"></option>
-            </datalist>
+            <button type="button" class="button btn-orange btn-text close-popup" data-id="popup-link">Save</button>
           </div>
         </div>
-      </div>
-      <div class="table_wrapper border-bottom">
-        <span class="wrapper-text">Select websites</span>
-        <div class="popup-link__table">
-          <table>
-            <!-- <tr>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-              <td>
-                <input type="checkbox"><span>Lorem ipsum</span>
-                <span class="icon-show"></span>
-              </td>
-            </tr> -->
-          </table>
-        </div>
-      </div>
-      <div class="popup-link__generate row">
-        <div class="col-12 col-md-7">
-          <input type="text" placeholder="Generated link" class="generated-link">
-        </div>
-        <div class="col-12 col-md-3">
-          <button type="button" class="button btn-grey btn-text btn-long"><span class="icon-links"></span>Copy link</button>
-        </div>
-        <div class="col-12 col-md-2">
-          <button type="button" class="button btn-orange btn-text">Save</button>
-        </div>
-      </div>
+      </form>
     </div>
   </section>
 
@@ -466,7 +320,7 @@
     </header>
 
     <div class="banners__element">
-      <button type="button" class="button btn-orange btn-text popup" id="popup-banner">+ add new</button>
+      <button type="button" class="button btn-orange btn-text popup" data-id="popup-banner">+ add new</button>
       <table>
         <tr class="table--hover table--hover-icons table--top-bottom-border">
           <td class="text--bold">Banner main</td>
@@ -517,103 +371,103 @@
           </td>
         </tr>
       </table>
-      <button type="button" class="button btn-orange btn-text popup" id="popup-banner">+ add new</button>
+      <button type="button" class="button btn-orange btn-text popup" data-id="popup-banner">+ add new</button>
     </div>
   </section>
 
-  
-  <section class="popup-banner">
+  <section class="popup-banner overlay">
     <div class="popup-banner__wrapper">
       <header class="popup-banner__title border-bottom">
         <h1 class="section--title">Add banners</h1>
-        <span class="icon-close close-popup" id="popup-banner"></span>
+        <span class="icon-close close-popup" data-id="popup-banner"></span>
       </header>
-
-      <div class="popup-banner__element border-bottom">
-        <div class="element company row">
-          <div class="col-12 col-md-5">
-            <label for="schem-name">Scheme name</label>
-            <input type="text" placeholder="Name" id="schem-name">
+      <form>
+        <div class="popup-banner__element border-bottom">
+          <div class="element company row">
+            <div class="col-12 col-md-5">
+              <label for="schem-name">Scheme name</label>
+              <input type="text" placeholder="Name" id="schem-name">
+            </div>
+            <div class="col-12 col-md-5">
+              <label for="comp-name">Company</label>
+              <input list="ban-company" name="company" placeholder="Select company" id="comp-name">
+              <datalist id="ban-company">
+                <option value="lorem ipsum"></option>
+                <option value="lorem ipsum"></option>
+                <option value="lorem ipsum"></option>
+              </datalist>
+            </div>
+            <div class="col-12 col-md-2">
+              <label for="banner-language">Language</label>
+              <input list="ban-language" name="language" id="banner-language">
+              <datalist id="ban-language">
+                <option value="EN" selected></option>
+                <option value="PL"></option>
+                <option value="DE"></option>
+              </datalist>
+            </div>
           </div>
-          <div class="col-12 col-md-5">
-            <label for="comp-name">Company</label>
-            <input list="company" name="company" placeholder="Select company" id="comp-name">
-            <datalist id="company">
-              <option value="lorem ipsum"></option>
-              <option value="lorem ipsum"></option>
-              <option value="lorem ipsum"></option>
-            </datalist>
+        </div>
+
+        <div class="popup-banner__element border-bottom">
+          <div class="element company row">
+            <div class="col-12 col-md-4">
+              <label for="weight">Weight - height</label>
+              <input list="weight-height" name="weight-height" placeholder="Select" id="weight">
+              <datalist id="weight-height">
+                <option value="lorem ipsum"></option>
+                <option value="lorem ipsum"></option>
+                <option value="lorem ipsum"></option>
+              </datalist>
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="banner-design">Design</label>
+              <input list="ban-design" name="design" placeholder="Select" id="banner-design">
+              <datalist id="ban-design">
+                <option value="lorem ipsum"></option>
+                <option value="lorem ipsum"></option>
+                <option value="lorem ipsum"></option>
+              </datalist>
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="file">File</label>
+              <input list="file-type" name="file-type" id="file">
+              <datalist id="file-type">
+                <option value="All" selected></option>
+                <option value="None"></option>
+              </datalist>
+            </div>
+          </div>
+        </div>
+        <div class="table_wrapper row border-bottom">
+          <div class="border-right border-bottom col-12 col-md-6 inner">
+            <span class="wrapper-text">Select banners</span>
+            <div class="popup-banner__table">
+              <table>
+              </table>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 inner">
+            <span class="wrapper-text">Select websites</span>
+            <div class="popup-banner__table">
+              <table>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="popup-banner__generate row">
+          <div class="col-12 col-md-7">
+            <input type="text" placeholder="Generated link" class="generated-link">
+          </div>
+          <div class="col-12 col-md-3">
+            <button type="button" class="button btn-grey btn-text btn-long"><span class="icon-links"></span>Copy link</button>
           </div>
           <div class="col-12 col-md-2">
-            <label for="language">Language</label>
-            <input list="language" name="language" id="language">
-            <datalist id="language">
-              <option value="EN" selected></option>
-              <option value="PL"></option>
-              <option value="DE"></option>
-            </datalist>
+            <button type="button" class="button btn-orange btn-text close-popup" data-id="popup-banner">Save</button>
           </div>
         </div>
-      </div>
-
-      <div class="popup-banner__element border-bottom">
-        <div class="element company row">
-          <div class="col-12 col-md-4">
-            <label for="weight">Weight - height</label>
-            <input list="weight-height" name="weight-height" placeholder="Select" id="weight">
-            <datalist id="weight-height">
-              <option value="lorem ipsum"></option>
-              <option value="lorem ipsum"></option>
-              <option value="lorem ipsum"></option>
-            </datalist>
-          </div>
-          <div class="col-12 col-md-4">
-            <label for="design">Design</label>
-            <input list="design" name="design" placeholder="Select" id="design">
-            <datalist id="design">
-              <option value="lorem ipsum"></option>
-              <option value="lorem ipsum"></option>
-              <option value="lorem ipsum"></option>
-            </datalist>
-          </div>
-          <div class="col-12 col-md-4">
-            <label for="file">File</label>
-            <input list="file-type" name="file-type" id="file">
-            <datalist id="file-type">
-              <option value="All" selected></option>
-              <option value="None"></option>
-            </datalist>
-          </div>
-        </div>
-      </div>
-      <div class="table_wrapper row border-bottom">
-        <div class="border-right border-bottom col-12 col-md-6 inner">
-          <span class="wrapper-text">Select banners</span>
-          <div class="popup-banner__table">
-            <table>
-            </table>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 inner">
-          <span class="wrapper-text">Select websites</span>
-          <div class="popup-banner__table">
-            <table>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="popup-banner__generate row">
-        <div class="col-12 col-md-7">
-          <input type="text" placeholder="Generated link" class="generated-link">
-        </div>
-        <div class="col-12 col-md-3">
-          <button type="button" class="button btn-grey btn-text btn-long"><span class="icon-links"></span>Copy link</button>
-        </div>
-        <div class="col-12 col-md-2">
-          <button type="button" class="button btn-orange btn-text">Save</button>
-        </div>
-      </div>
+      </form>
     </div>
   </section>
 
@@ -655,36 +509,111 @@
     </div>
   </section>
 
-  <section class="payout active" id="payout">
+  <section class="payout" id="payout">
     <header class="payout__title border-bottom">
       <h1 class="section--title">Payout history</h1>
     </header>
     
     <div class="payout__element border-bottom">
-      <input class="date-picker" type="date" id="payout-start" name="stats-start">
-      <input class="date-picker" type="date" id="payout-end" name="stats-end">
-      <button type="button" class="button btn-orange"><span class="icon-refresh"></span></button>
+      <form>
+        <input class="date-picker" type="date" id="payout-start" name="stats-start">
+        <input class="date-picker" type="date" id="payout-end" name="stats-end">
+        <button type="button" class="button btn-orange"><span class="icon-refresh"></span></button>
+      </form>
     </div>
 
-    <div class="payout__element border-bottom">
-      <table>
-        <tr class="border-bottom">
-          <th class="table--hover">Date<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Amount ($)<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Deal<span class="icon-arrow-up"></span></th>
-          <th class="table--hover">Account<span class="icon-arrow-up"></span></th>
-        </tr>
-        <tr class="border-bottom table--hover">
-          <td>17/08/02 (12:04)</td>
-          <td>34,425.00</td>
-          <td>cpl (200)</td>
-          <td>bank</td>
-        </tr>
-      </table>
+    <div class="payout__element table border-bottom">
+    <!-- JS inserts table here -->
     </div>
   </section>
-
+<!-- 
+  <section class="postback" id="postback">
+    <header class="postback__title border-bottom">
+      <h1 class="section--title">New postback</h1>
+    </header>
+    <div class="row">
+      <div class="col-12">
+        <span>You can insert some parameters in this postback:</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <form>
+          <label for="signup">Signup</label>
+          <input id="signup" type="text" value="crm_userId=%user_id%" class="input--long">
+        </form>
+      </div>
+      <div class="col-12 col-md-6">
+        <form>
+          <label for="deposit">Deposit</label>
+          <input id="deposit" type="text" value="crm_userId=%user_id%" class="input--long">
+        </form>
+      </div>
+    </div>
+    <div class="row border-bottom">
+      <div class="col-12 col-md-4">
+        <form>
+          <label for="postback-type">Postback type</label>
+          <input list="postback-type" name="postback-type" placeholder="S2S (http://..)" class="w-100">
+          <datalist id="postback-type">
+            <option value="lorem ipsum"></option>
+            <option value="lorem ipsum"></option>
+            <option value="lorem ipsum"></option>
+          </datalist>
+        </form>
+      </div>
+      <div class="col-12 col-md-4">
+        <form>
+          <label for="postback-countries">To countries</label>
+          <input list="postback-countries" name="postback-countries" placeholder="Select countries" class="w-100">
+          <datalist id="postback-countries">
+            <option value="lorem ipsum"></option>
+            <option value="lorem ipsum"></option>
+            <option value="lorem ipsum"></option>
+          </datalist>
+        </form>
+      </div>
+      <div class="col-12 col-md-4">
+        <form>
+          <label for="postback-options">Postback options</label>
+          <input list="postback-options" name="postback-options" placeholder="Select" class="w-100">
+          <datalist id="postback-options">
+            <option value="lorem ipsum"></option>
+            <option value="lorem ipsum"></option>
+            <option value="lorem ipsum"></option>
+          </datalist>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-6 border-right">
+        <span>Not send statuses</span>
+        <ul>
+          <li>checkNumber</li>
+          <li>noAnswer</li>
+          <li>noCall</li>
+          <li>noShow</li>
+          <li>callAgain</li>
+          <li>showAgain</li>
+          <li>checkNumber</li>
+          <li>noAnswer</li>
+          <li>noCall</li>
+          <li>noShow</li>
+          <li>callAgain</li>
+          <li>showAgain</li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6">
+        <form>
+          <label for="time-slider">Send after:</label>
+          <input type="range" id="time-slider" min="0" max="168">
+        </form>
+      </div>
+    </div>
+  </section>
+ -->
 </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
