@@ -356,6 +356,10 @@ input:not(input[type=checkbox]) {
   }
 
   .general {
+    .chart {
+      width: 100% !important;
+    }
+
     .general__element {
       flex-direction: column;
     }
